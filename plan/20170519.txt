@@ -1,10 +1,10 @@
 Jobs most crucial:
 
-Create the plane class. The plane class must work because the player class would need 4 plane classes. The board class would be used to keep track of other players' planes.
+Create the plane class. The plane class must work because the player class would need 4 plane classes. The board class would be used to keep track of other players' planes. Try to see if the planes would actually move correctly along the paths.
 
 Components for core functionality (vs non-essential):
 
-The plane and player class must work. The plane must be able to move along the path of the board game. The plane must also get to homebase. The special moves (like jump point) and moving backwards are non-essential.
+The plane and player class must work. The plane must be able to move along the path of the board game. The plane must also get to homebase. The die function must work as well. The special moves (like jump point) and moving backwards are non-essential.
 
 Components prerequisites for others:
 
@@ -18,5 +18,9 @@ Collaboratively - Board class
                 - Graphics/animating board game using Processing
 
 Timeline:
+
+Make plane and player class first.
+Then create the board class.
+Then use processing for the graphsics.
 
 Might not be able to get all of the features (jump point, moving back, etc) like the actual game.
