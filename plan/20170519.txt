@@ -16,3 +16,7 @@ Solo - creating Plane class
      - creating Player class
 Collaboratively - Board class
                 - Graphics/animating board game using Processing
+
+Timeline:
+
+Might not be able to get all of the features (jump point, moving back, etc) like the actual game.
