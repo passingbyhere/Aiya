@@ -1,0 +1,18 @@
+Jobs most crucial:
+
+Create the plane class. The plane class must work because the player class would need 4 plane classes. The board class would be used to keep track of other players' planes.
+
+Components for core functionality (vs non-essential):
+
+The plane and player class must work. The plane must be able to move along the path of the board game. The plane must also get to homebase. The special moves (like jump point) and moving backwards are non-essential.
+
+Components prerequisites for others:
+
+Plane must be used in Player. Player class will probably be used in Board class.
+
+Tasks that can be delegated, and collaboratively tackled:
+
+Solo - creating Plane class
+     - creating Player class
+Collaboratively - Board class
+                - Graphics/animating board game using Processing
