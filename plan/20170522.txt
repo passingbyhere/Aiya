@@ -1,0 +1,27 @@
+NEW PROJECT IDEA: Sandwich Stacker
+
+Jobs most crucial:
+	Create Ingredients class. The Ingredients class will be used to drop ingredients from the top of the screen.
+	Create Player class. The Player class will create a stack of the ingredients (aka sandwich) and check if there are enough points to move on to the next level.
+
+
+Components for core functionality:
+	Ingredients must fall. 
+	Ingredients must stack when ingredients fall on top of sandwich.
+	Player must be able to move the plate side by side.
+
+Tasks that can be delegated, and collaboratively tackled:
+
+	Solo - setting up the basic instance variables for Ingredients and Player class.
+	Collaboratively - making the animation of the ingredients falling.
+
+Timeline:
+	Create Ingredients and Player class.
+	Work on ingredients class (have the ingredients fall).
+	Create plate for Player class.
+	Make sure ingredients can stack on the plate.
+	Create points, strike, and level system.
+	Create more levels.
+
+ 
+
