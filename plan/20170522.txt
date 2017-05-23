@@ -4,7 +4,6 @@ Jobs most crucial:
 	Create Ingredients class. The Ingredients class will be used to drop ingredients from the top of the screen.
 	Create Player class. The Player class will create a stack of the ingredients (aka sandwich) and check if there are enough points to move on to the next level.
 
-
 Components for core functionality:
 	Ingredients must fall. 
 	Ingredients must stack when ingredients fall on top of sandwich.
