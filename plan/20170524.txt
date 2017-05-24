@@ -1,0 +1,8 @@
+Ingredients class:
+	work on creating ingredients (using different shapes temporaily)
+	make sure ingredients fall
+	make sure the ingredients stack when the ingredients fall onto the plate/hand
+
+Player class:
+	create a hand/plate that follows the mouse
+	
