@@ -6,3 +6,5 @@ Ingredients class:
 Player class:
 	create a hand/plate that follows the mouse
 	
+-All of the ingredients/plate are going to be rectangular shapes at first.
+	
