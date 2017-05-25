@@ -12,4 +12,21 @@ Ingredients(String n,int W, int H, int R, int G, int B){
   c = color(R, G, B);
   ix = random() * width;
   iy = 0;
+  status = 0;
 }
+
+move(Player player){
+  if(status == 1){
+    iy += 5;
+    if(iy == player.getsY() && ix == player.getsX()){
+      status = 2;
+    }
+  }
+  if(iy == height){
+    status = 3;
+  }
+  if(status == 2){
+    ix = mouseX;
+  }
+}
+  
