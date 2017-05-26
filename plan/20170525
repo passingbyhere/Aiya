@@ -1,1 +1,6 @@
+Ingredients and Meal class:
+-create more ingredients and add them to the ArrayLists.
+-add ingredients to fallingQueue to make sure it would work.
 
+Player class:
+-set up points system.
