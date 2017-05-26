@@ -17,7 +17,7 @@ class Ingredients{
   
   void move(Player player){
     if(status == 1){
-      iy += 5;
+      iy += 0.05;
       if(iy == player.getsY() && ix == player.getsX()){
         status = 2;
       }
@@ -28,8 +28,23 @@ class Ingredients{
     if(status == 2){
       ix = mouseX;
     }
+    fill(c);
+    rect(ix,iy,w,h);
+  }
+  //toString
+  String toString(){
+    return name;
   }
   
+  //accessor
+  int getStatus(){
+    return status;
+  }
+  color getColor(){
+    return c;
+  }
+  
+  //mutator
   void setStatus(int stat){
     status = stat;
   }

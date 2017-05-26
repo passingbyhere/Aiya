@@ -4,7 +4,7 @@ int maxPoints, level;
 ALQueue<Ingredients> fallIngredients = new ALQueue<Ingredients>();
 ArrayList<Ingredients> gIngredients, bIngredients;
 ALStack<Ingredients> sandwich;
-ALStack<Ingredients> holder = new ALStack<Ingredients>();
+ArrayList<Ingredients> holder = new ArrayList<Ingredients>();
 Meal meal = new Meal();
 Player playa = new Player();
 
@@ -27,8 +27,16 @@ void draw(){
   playa.setPoints(0);
   playa.setsY(10 + 5);
   playa.setsX(mouseX);
-  fallIngredients.enqueue(g.Ingredients(0));
-  holder.push(fallIngredients.dequeue());
+  //System.out.println(gIngredients.get(0));
+  fallIngredients.enqueue(gIngredients.get(0));
+  //System.out.println(fallIngredients.peekFront());
+  holder.add(fallIngredients.dequeue());
+  //System.out.println(holder.get(0));
+  for (int i = 0; i < holder.size(); i+=1){
+    (holder.get(i)).setStatus(1);
+    (holder.get(i)).move(playa);
+  }
+  
   
   
 }
