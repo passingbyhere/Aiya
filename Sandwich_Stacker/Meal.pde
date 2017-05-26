@@ -4,6 +4,11 @@ class Meal{
   
   Ingredients ham = new Ingredients("ham", 20, 10, 240, 162, 162);
   
-  breakfast.add(ham);
+  public Meal(){
+    breakfast.add(ham);
+  }
   
+  public ArrayList<Ingredients> getBreakfast(){
+    return breakfast;
+  }
 }

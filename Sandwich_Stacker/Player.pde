@@ -20,19 +20,19 @@ class Player {
   }
   
   //mutators
-  public float setsX(float x){
+  public void setsX(float x){
     sX = x;
   }
-  public float setsY(float y){
+  public void setsY(float y){
     sY = y;
   }
-  public int setPoints(int pts){
+  public void setPoints(int pts){
     points = pts;
   }
-  public int setStrikes(int STRIKES){
+  public void setStrikes(int STRIKES){
     strikes = STRIKES;
   }
-  public int setLevel(int lvl){
+  public void setLevel(int lvl){
     level = lvl;
   } 
   

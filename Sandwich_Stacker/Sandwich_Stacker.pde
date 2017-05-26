@@ -4,6 +4,7 @@ int maxPoints, level;
 ALQueue<Ingredients> fallIngredients = new ALQueue<Ingredients>();
 ArrayList<Ingredients> gIngredients, bIngredients;
 ALStack<Ingredients> sandwich;
+Meal meal = new Meal();
 
 void setup(){
   size(600, 567);
@@ -12,7 +13,7 @@ void setup(){
   gIngredients = new ArrayList<Ingredients>();
   bIngredients = new ArrayList<Ingredients>();
   
-  g.Ingredients.add(breakfast.get(0));
+  gIngredients.add((meal.getBreakfast()).get(0));
   image(plateimg, width/2, height); 
 }
 
