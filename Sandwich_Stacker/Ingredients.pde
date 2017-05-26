@@ -29,5 +29,9 @@ class Ingredients{
       ix = mouseX;
     }
   }
+  
+  void setStatus(int stat){
+    status = stat;
+  }
 }
   
