@@ -1,3 +1,10 @@
+May 25, 2017
+Lisa & Elaina: Made the specifications for the ingredient ham and made the plate. We made a meal class to make the ArrayLists easier. Made the move class for Ingredients.
+
+May 24, 2017
+
+Lisa & Elaina: completely revamped the Ingredients class and decided to put the array lists of ingredients into the driver file for easier access. Also made the accessors and mutators for Player class.
+
 May 23, 2017
 
 Got new project idea approved & learned valuable lessons!!!
