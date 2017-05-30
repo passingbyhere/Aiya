@@ -1,6 +1,9 @@
 Team Aiya -- Elaina Chung & Lisa Eng
 APCS2 pd3
 
+May 26-29, 2017
+Lisa & Elaina: Got an ingredient to fall down and the plate to move. However, we could not get the ingredient to fall on the plate.
+
 May 25, 2017
 Lisa & Elaina: Made the specifications for the ingredient ham and made the plate. We made a meal class to make the ArrayLists easier. Made the move class for Ingredients.
 
