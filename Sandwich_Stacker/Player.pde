@@ -1,7 +1,7 @@
 class Player {
   private int points, strikes, level;
   private float sX, sY;
-  
+
   //accessors
   public float getsX(){
     return sX;

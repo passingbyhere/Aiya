@@ -23,9 +23,9 @@ void setup(){
 void draw(){
   image(img, 0, 0);
   //image(plateimg, mouseX, mouseY);
-  rect(mouseX + 30, 500, 150, 10);
+  rect(mouseX, 500, 150, 10);
   playa.setPoints(0);
-  playa.setsY(10 + 5);
+  playa.setsY(500);
   playa.setsX(mouseX);
   //System.out.println(gIngredients.get(0));
   fallIngredients.enqueue(gIngredients.get(0));
