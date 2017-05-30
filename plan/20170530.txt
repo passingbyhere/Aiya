@@ -1,0 +1,6 @@
+Ingredients class:
+	- fix move() so that if the ingredient falls on the plate, the ingredient will stay on the plate.
+
+Player class:
+	- cretae points system. 
+
