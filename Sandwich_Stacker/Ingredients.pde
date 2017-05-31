@@ -35,8 +35,11 @@ class Ingredients{
   }*/
   
   void move(Player player){
-    if ((int)iy == (int)player.getsY() && (int)ix >= (int)player.getsX() && (int)ix <= (int)player.getsX() + 20){
+    if ((int)iy == (int)player.getsY() && (int)ix >= (int)player.getsX()){//player.getsX() && (int)ix <= (int)player.getsX() + 20){
       status = 2;
+      ix = mouseX + x;
+      //player.setsY(player.getsY() + h);
+      //iy = player.getsY();
     }
     if (status == 1){
       iy += 0.05;
@@ -45,9 +48,10 @@ class Ingredients{
       status = 3;
       iy = 800;
     }
-    if(status == 2){
-      ix = mouseX + x;
-    }
+    /*if(status == 2){
+
+      return;
+    }*/
     fill(c);
     rect(ix,iy,w,h);
   }
