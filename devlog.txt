@@ -1,6 +1,9 @@
 Team Aiya -- Elaina Chung & Lisa Eng
 APCS2 pd3
 
+May 30. 2017
+Lisa Elaina: We fixed the y component of the ingredient and plate colliding, however, the x component is preventing the ingredient from staying on the plate. 
+
 May 26-29, 2017
 Lisa & Elaina: Got an ingredient to fall down and the plate to move. However, we could not get the ingredient to fall on the plate.
 
