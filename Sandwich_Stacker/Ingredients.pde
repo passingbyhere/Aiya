@@ -68,6 +68,12 @@ class Ingredients{
   color getColor(){
     return c;
   }
+  float getiX(){
+    return ix;
+  }
+  float getiY(){
+    return iy;
+  }
   
   //mutator
   void setStatus(int stat){
