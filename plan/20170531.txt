@@ -1,1 +1,17 @@
 
+Ingredients class:
+	- fix move() so that if the ingredient falls on the plate, the ingredient will stay on the plate. (x component)
+
+Player class:
+	- create points system. 
+  
+Meal:
+  - add more ingredients to the ArrayLists
+  
+Driver:
+  -add levels
+
+
+Not Crucial:
+-timer(for now)
+-images(for now)
