@@ -2,7 +2,7 @@ Team Aiya -- Elaina Chung & Lisa Eng
 APCS2 pd3
 
 May 30. 2017
-Lisa Elaina: We fixed the y component of the ingredient and plate colliding, however, the x component is preventing the ingredient from staying on the plate. 
+Lisa & Elaina: We got the ingredient to stay on the plate, however, it is in the plate, not on top of it. Also, when we use fill, it fills in the plate's color as well.
 
 May 26-29, 2017
 Lisa & Elaina: Got an ingredient to fall down and the plate to move. However, we could not get the ingredient to fall on the plate.
