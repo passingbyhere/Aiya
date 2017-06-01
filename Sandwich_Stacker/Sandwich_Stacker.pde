@@ -13,7 +13,7 @@ Ingredients ham2 = new Ingredients("ham", 40, 10, 240, 162, 162);
 void setup(){
   size(600, 567);
   img = loadImage("fridge.jpg");
-  //plateimg = loadImage("plate.png"); 
+  //plateimg = loadImage("plate.png");
   rect(width/2,height,20,10);
   gIngredients = new ArrayList<Ingredients>();
   bIngredients = new ArrayList<Ingredients>();
@@ -34,6 +34,7 @@ void setup(){
 void draw(){
   image(img, 0, 0);
   //image(plateimg, mouseX, mouseY);
+  fill(255,255,255);
   rect(mouseX, 500, 150, 10);
   //when holder's last item hits 1/2 point, then ask first item in falling to set status 1 && add to holder.
   if ((int)(holder.get(holder.size()-1)).getiY() == (int)height/2){
@@ -41,6 +42,7 @@ void draw(){
     System.out.println(i);
     holder.add(i);
     i.setStatus(1);
+    fallIngredients.enqueue(ham2);
   }
   //move (always)
   for (Ingredients i: holder){
