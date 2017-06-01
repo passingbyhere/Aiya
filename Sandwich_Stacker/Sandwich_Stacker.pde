@@ -8,6 +8,8 @@ ArrayList<Ingredients> holder = new ArrayList<Ingredients>();
 Meal meal = new Meal();
 Player playa = new Player();
 
+Ingredients ham2 = new Ingredients("ham", 40, 10, 240, 162, 162);
+
 void setup(){
   size(600, 567);
   img = loadImage("fridge.jpg");
@@ -21,7 +23,7 @@ void setup(){
   gIngredients.add((meal.getBreakfast()).get(1));
   fallIngredients.enqueue(gIngredients.get(0));
   fallIngredients.enqueue(gIngredients.get(1));
-  holder.add(new Ingredients("ham", ));
+  holder.add(new Ingredients(ham2));
   holder.get(0).setStatus(1);
   //image(plateimg, width/2, height);
   playa.setPoints(0);

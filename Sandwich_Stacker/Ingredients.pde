@@ -17,6 +17,15 @@ class Ingredients{
     status = 0;
   }
   
+  Ingredients(Ingredients i){
+    name = i.name;
+    w = i.w;
+    h = i.h;
+    c = i.c;
+    x = i.x;
+    iy = i.iy;
+    status = i.status;
+  }
   /*void move(Player player){
     if(status == 1){
       iy += 0.05;
