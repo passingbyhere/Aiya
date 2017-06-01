@@ -44,7 +44,7 @@ class Ingredients{
   }*/
   
   void move(Player player){
-    if ((int)iy == (int)player.getsY() - 10 && (int)ix >= (int)player.getsX()){//player.getsX() && (int)ix <= (int)player.getsX() + 20){
+    if ((int)iy == (int)player.getsY() - h && (int)ix >= (int)player.getsX()){//player.getsX() && (int)ix <= (int)player.getsX() + 20){
       status = 2;
       player.setsY(player.getsY() - h);
       //iy = player.getsY();

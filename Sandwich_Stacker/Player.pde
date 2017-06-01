@@ -36,5 +36,4 @@ class Player {
     level = lvl;
   } 
   
-  
 }
