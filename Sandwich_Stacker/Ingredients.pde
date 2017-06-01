@@ -42,7 +42,7 @@ class Ingredients{
       //iy = player.getsY();
     }
     if (status == 1){
-      iy += 0.05;
+      iy += 1;
     }
     if (iy >= height){
       status = 3;
