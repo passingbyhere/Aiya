@@ -46,8 +46,7 @@ class Ingredients{
   void move(Player player){
     if ((int)iy == (int)player.getsY() - 10 && (int)ix >= (int)player.getsX()){//player.getsX() && (int)ix <= (int)player.getsX() + 20){
       status = 2;
-      ix = mouseX + x;
-      //player.setsY(player.getsY() + h);
+      player.setsY(player.getsY() - h);
       //iy = player.getsY();
     }
     if (status == 1){
@@ -57,10 +56,9 @@ class Ingredients{
       status = 3;
       iy = 800;
     }
-    /*if(status == 2){
-
-      return;
-    }*/
+    if(status == 2){
+      ix = mouseX + 50;
+    }
     fill(c);
     rect(ix,iy,w,h);
   }
