@@ -37,11 +37,13 @@ void draw(){
   //System.out.println(holder.get(0));
   int i = 0;
   while (i < holder.size()){
+
     holder.get(i).setStatus(1);
     holder.get(i).move(playa);
-    if ((int)holder.get(i).getiY() >= height/4){
+    i+=1;
+    /*if ((int)holder.get(i).getiY() >= height/4){
       i += 1;
-    }
+    }*/
   }
   /*for (int i = 0; i < holder.size(); i+=1){
     int time = millis();
