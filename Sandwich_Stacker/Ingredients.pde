@@ -11,7 +11,7 @@ class Ingredients{
     w = W;
     h = H;
     c = color(R, G, B);
-    ix = (float)(random(width));
+    ix = (float)(random(600));
     x = ix;
     iy = 0;
     status = 0;
