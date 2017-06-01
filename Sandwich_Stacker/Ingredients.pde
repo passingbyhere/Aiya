@@ -5,7 +5,7 @@ class Ingredients{
   int w,h;
   color c;
   int status; //0 = in fallIngredients, 1 = falling, 2 = in sandwichStack, 3 = disappeared at the bottom of screen
-  
+
   Ingredients(String n,int W, int H, int R, int G, int B){
     name = n;
     w = W;
