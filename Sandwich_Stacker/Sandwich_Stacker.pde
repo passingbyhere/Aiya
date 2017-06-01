@@ -9,6 +9,7 @@ Meal meal = new Meal();
 Player playa = new Player();
 
 Ingredients ham2 = new Ingredients("ham", 40, 10, 240, 162, 162);
+Ingredients cheese2 = new Ingredients("cheese", 40, 5, 249, 250, 119);
 
 void setup(){
   size(600, 567);
@@ -21,8 +22,8 @@ void setup(){
   
   gIngredients.add((meal.getBreakfast()).get(0));
   gIngredients.add((meal.getBreakfast()).get(1));
-  fallIngredients.enqueue(gIngredients.get(0));
-  fallIngredients.enqueue(gIngredients.get(1));
+  //fallIngredients.enqueue(gIngredients.get(0));
+  //fallIngredients.enqueue(gIngredients.get(1));
   holder.add(new Ingredients(ham2));
   holder.get(0).setStatus(1);
   //image(plateimg, width/2, height);
@@ -38,11 +39,17 @@ void draw(){
   rect(mouseX, 500, 150, 10);
   //when holder's last item hits 1/2 point, then ask first item in falling to set status 1 && add to holder.
   if ((int)(holder.get(holder.size()-1)).getiY() == (int)height/2){
+    if (random(0) == 0) {
+      fallIngredients.enqueue(ham2.getInstance());
+    }
+    else {
+      fallIngredients.enqueue(cheese2.getInstance());
+    }
+    
     Ingredients i = fallIngredients.dequeue();
     System.out.println(i);
     holder.add(i);
     i.setStatus(1);
-    fallIngredients.enqueue(ham2);
   }
   //move (always)
   for (Ingredients i: holder){

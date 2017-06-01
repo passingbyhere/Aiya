@@ -22,7 +22,7 @@ class Ingredients{
     w = i.w;
     h = i.h;
     c = i.c;
-    x = i.x;
+    x = (float)(random(600));
     iy = i.iy;
     status = i.status;
   }
@@ -42,6 +42,12 @@ class Ingredients{
     fill(c);
     rect(ix,iy,w,h);
   }*/
+  
+  Ingredients getInstance() {
+    Ingredients i = new Ingredients(this);
+    i.x = random(600);
+    return i;
+  }
   
   void move(Player player){
     if ((int)iy == (int)player.getsY() - h && (int)ix >= (int)player.getsX()){//player.getsX() && (int)ix <= (int)player.getsX() + 20){
