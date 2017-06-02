@@ -1,5 +1,4 @@
 PImage img;
-PImage plateimg;
 int maxPoints, level;
 ALQueue<Ingredients> fallIngredients = new ALQueue<Ingredients>();
 ArrayList<Ingredients> gIngredients, bIngredients;
@@ -8,8 +7,8 @@ ArrayList<Ingredients> holder = new ArrayList<Ingredients>();
 Meal meal = new Meal();
 Player playa = new Player();
 
-Ingredients ham2 = new Ingredients("ham", 40, 10, 240, 162, 162);
-Ingredients cheese2 = new Ingredients("cheese", 40, 5, 249, 250, 119);
+Ingredients ham2 = new Ingredients("ham", 40, 10, 240, 162, 162, "ham.png");
+Ingredients cheese2 = new Ingredients("cheese", 40, 5, 249, 250, 119, "ham.png");
 
 void setup(){
   size(600, 567);

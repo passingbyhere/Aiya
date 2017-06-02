@@ -1,20 +1,21 @@
 class Ingredients{
   float ix,iy;
-  float x;
   String name;
   int w,h;
   color c;
   int status; //0 = in fallIngredients, 1 = falling, 2 = in sandwichStack, 3 = disappeared at the bottom of screen
-
-  Ingredients(String n,int W, int H, int R, int G, int B){
+  PImage texture;
+  Ingredients(String n,int W, int H, int R, int G, int B, String text){
     name = n;
     w = W;
     h = H;
     c = color(R, G, B);
     ix = (float)(random(600));
-    x = ix;
+    //x = ix;
     iy = 0;
     status = 0;
+    texture = loadImage(text);
+    texture.resize(40, 5);
   }
   
   Ingredients(Ingredients i){
@@ -22,7 +23,7 @@ class Ingredients{
     w = i.w;
     h = i.h;
     c = i.c;
-    x = (float)(random(600));
+    ix = (float)(random(600));
     iy = i.iy;
     status = i.status;
   }
@@ -45,7 +46,7 @@ class Ingredients{
   
   Ingredients getInstance() {
     Ingredients i = new Ingredients(this);
-    i.x = random(600);
+    i.ix = random(600);
     return i;
   }
   
@@ -65,8 +66,10 @@ class Ingredients{
     if(status == 2){
       ix = mouseX + 50;
     }
-    fill(c);
-    rect(ix,iy,w,h);
+    pushMatrix();
+    translate(ix, iy);
+    image(texture, 0, 0);
+    popMatrix();
   }
   
   //toString
