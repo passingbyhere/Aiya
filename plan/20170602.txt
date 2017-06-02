@@ -4,6 +4,7 @@ Ingredients:
 
 Meal:
 	- add more ingredients to gIngredients and bIngredients
+	- add for lunch and dinner items
 
 Player:
 	- create a point system
