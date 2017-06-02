@@ -39,7 +39,7 @@ void draw(){
   rect(mouseX, 500, 100, 10);
   //when holder's last item hits 1/2 point, then ask first item in falling to set status 1 && add to holder.
   if ((int)(holder.get(holder.size()-1)).getiY() >= (int)height/2){
-    if (random(0) == 0) {
+    if ((int)random(2) == 0) {
       fallIngredients.enqueue(ham2.getInstance());
     }
     else {
