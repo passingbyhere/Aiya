@@ -11,7 +11,6 @@ class Ingredients{
     h = H;
     c = color(R, G, B);
     ix = (float)(random(600));
-    //x = ix;
     iy = 0;
     status = 0;
     texture = loadImage(text);
@@ -51,20 +50,20 @@ class Ingredients{
   }
   
   void move(Player player){
-    if ((int)iy == (int)player.getsY() - h && (int)ix >= (int)player.getsX()){//player.getsX() && (int)ix <= (int)player.getsX() + 20){
+    if ((int)iy == (int)player.getsY() - h && (int)ix >= (int)mouseX && (int)ix <= (int)mouseX + 150){
       status = 2;
       player.setsY(player.getsY() - h);
       //iy = player.getsY();
     }
     if (status == 1){
-      iy += 1;
+      iy += 5;
     }
     if (iy >= height){
       status = 3;
       iy = 800;
     }
     if(status == 2){
-      ix = mouseX + 50;
+      ix = mouseX + 30;
     }
     pushMatrix();
     translate(ix, iy);
