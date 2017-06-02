@@ -1,7 +1,13 @@
 Team Aiya -- Elaina Chung & Lisa Eng
 APCS2 pd3
 
-May 30. 2017
+June 1, 2017
+Lisa & Elaina: We went to the CS Dojo, one of the best/most helpful Csessions we've ever been to. SHOUT OUT TO BILLY FOR HELPING US A LOT. We fixed the problem of having the ingredients falling one after another (by checking if the ingredient that is falling is displayed 1/2 way). We also got ingredients to stack on top of one another. We see the lighttt.
+
+May 31, 2017
+Lisa & Elaina: We tried to get the ingredients to fall one after another instead of simultaneously, but were not successful. Ingredients are not stacking on top of one another as well. 
+
+May 30, 2017
 Lisa & Elaina: We got the ingredient to stay on the plate, however, it is in the plate, not on top of it. Also, when we use fill, it fills in the plate's color as well.
 
 May 26-29, 2017

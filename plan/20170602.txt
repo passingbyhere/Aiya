@@ -1,0 +1,13 @@
+Ingredients:
+	- need to get ingredients to fall randomly on the x-coordinate
+	- start adding images of the ingredients (rather than blocks)
+
+Meal:
+	- add more ingredients to gIngredients and bIngredients
+
+Player:
+	- create a point system
+	- create a level system
+
+Sandwich Stacker:
+	- create a time system
