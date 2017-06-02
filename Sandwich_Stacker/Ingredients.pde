@@ -1,6 +1,5 @@
 class Ingredients{
   float ix,iy;
-  float x;
   String name;
   int w,h;
   color c;
@@ -12,7 +11,6 @@ class Ingredients{
     h = H;
     c = color(R, G, B);
     ix = (float)(random(600));
-    x = ix;
     iy = 0;
     status = 0;
   }
@@ -22,7 +20,7 @@ class Ingredients{
     w = i.w;
     h = i.h;
     c = i.c;
-    x = (float)(random(600));
+    ix = (float)(random(600));
     iy = i.iy;
     status = i.status;
   }
@@ -45,25 +43,25 @@ class Ingredients{
   
   Ingredients getInstance() {
     Ingredients i = new Ingredients(this);
-    i.x = random(600);
+    i.ix = random(600);
     return i;
   }
   
   void move(Player player){
-    if ((int)iy == (int)player.getsY() - h && (int)ix >= (int)player.getsX()){//player.getsX() && (int)ix <= (int)player.getsX() + 20){
+    if ((int)iy == (int)player.getsY() - h && (int)ix >= (int)mouseX && (int)ix <= (int)mouseX + 150){
       status = 2;
       player.setsY(player.getsY() - h);
       //iy = player.getsY();
     }
     if (status == 1){
-      iy += 1;
+      iy += 5;
     }
     if (iy >= height){
       status = 3;
       iy = 800;
     }
     if(status == 2){
-      ix = mouseX + 50;
+      ix = mouseX + 30;
     }
     fill(c);
     rect(ix,iy,w,h);

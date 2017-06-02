@@ -55,30 +55,4 @@ public class ALQueue<T> implements Queue<T>
     {
 	return "front->" + _queue.toString() + "<-end";
     }//O(n)
-
-
-    //main method for testing
-    public static void main( String[] args ) 
-    {
-	  Queue<String> ALBSure = new ALQueue<String>();
-
-	  System.out.println("\nnow enqueuing thrice..."); 
-	  ALBSure.enqueue("Al");
-	  ALBSure.enqueue("B.");
-	  ALBSure.enqueue("Sure!");
-
-	  System.out.println("\nnow testing toString()..."); 
-	  System.out.println( ALBSure ); //for testing toString()...
-
-	  System.out.println("\nnow dequeuing thrice..."); 
-	  System.out.println( ALBSure.dequeue() );
-	  System.out.println( ALBSure.dequeue() );
-	  System.out.println( ALBSure.dequeue() );
-
-	  System.out.println("\nDequeuing from empty queue should yield error..."); 
-	  System.out.println( ALBSure.dequeue() );
-	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-    }//end main
-
 }//end class ALQueue
