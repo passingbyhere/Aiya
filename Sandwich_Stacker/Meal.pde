@@ -16,9 +16,9 @@ class Meal{
   
   //dinner
   Ingredients beef = new Ingredients("beef", 40, 10);
-  Ingredients lettuce = new Ingredients("lettuce", 40, 10);
-  Ingredients tomato = new Ingredients("tomato", 40, 10);
-  Ingredients beef = new Ingredients("beef", 40, 10);
+  //Ingredients lettuce = new Ingredients("lettuce", 40, 10);
+  //Ingredients tomato = new Ingredients("tomato", 40, 10);
+  //Ingredients beef = new Ingredients("beef", 40, 10);
   
   public Meal(){
     //set textures for Breakfast Ingredients
