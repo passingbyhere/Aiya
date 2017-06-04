@@ -3,26 +3,28 @@ class Meal{
   ArrayList<Ingredients> breakfast = new ArrayList<Ingredients>();
   ArrayList<Ingredients> lunch = new ArrayList<Ingredients>();
   ArrayList<Ingredients> dinner = new ArrayList<Ingredients>();
+  ArrayList<Ingredients> badFood = new ArrayList<Ingredients>();
   
   //breakfast
-  Ingredients ham = new Ingredients("ham", 40, 10);
+  Ingredients bacon = new Ingredients("bacon", 40, 10);  
   Ingredients cheese = new Ingredients("cheese", 40, 5);
   Ingredients egg = new Ingredients("egg", 40, 10);
   
   //lunch
-  Ingredients bacon = new Ingredients("bacon", 40, 10);
+  Ingredients beef = new Ingredients("beef", 40, 10);
   Ingredients lettuce = new Ingredients("lettuce", 40, 10);
   Ingredients tomato = new Ingredients("tomato", 40, 10);
   
   //dinner
-  Ingredients beef = new Ingredients("beef", 40, 10);
-  Ingredients lettuce = new Ingredients("lettuce", 40, 10);
-  Ingredients tomato = new Ingredients("tomato", 40, 10);
-  Ingredients beef = new Ingredients("beef", 40, 10);
+  Ingredients ham = new Ingredients("ham", 40, 10);  
+  Ingredients onion = new Ingredients("onion", 40, 10);
+ 
+  //badFood
+  Ingredients badEgg = new Ingredients("badEgg", 40, 10);
+  Ingredients bananaPeel = new Ingredients ("bananaPeel", 40, 10);
   
   public Meal(){
     //set textures for Breakfast Ingredients
-    ham.setTexture(hamImg);
     cheese.setTexture(cheeseImg);
     egg.setTexture(eggImg);
     bacon.setTexture(baconImg);
@@ -34,10 +36,14 @@ class Meal{
     //bacon.setTexture(baconImg);  
 
     //set textures for Dinner Ingredients
+    ham.setTexture(hamImg);    
+    onion.setTexture(onionImg);
     
+    //set textures for badFood
+    badEgg.setTexture(badEggImg);
+    bananaPeel.setTexture(bananaPeelImg);
     
     //add breakfast ingredients in breakfast
-    breakfast.add(ham);
     breakfast.add(cheese);
     breakfast.add(egg);
     breakfast.add(bacon);
@@ -46,6 +52,15 @@ class Meal{
     lunch.add(beef);
     lunch.add(tomato);
     lunch.add(lettuce);
+
+    //add dinner ingredients in dinner   
+    dinner.add(ham);
+    dinner.add(onion);
+    
+    //add badFood
+    badFood.add(badEgg);
+    badFood.add(bananaPeel);
+    
   }
   
   //accessors
@@ -60,5 +75,8 @@ class Meal{
   public ArrayList<Ingredients> getDinner(){
     return dinner;
   }  
-  
+
+  public ArrayList<Ingredients> getBadFood(){
+    return badFood;
+  }    
 }
