@@ -2,46 +2,25 @@ class Ingredients{
   float ix,iy;
   String name;
   int w,h;
-  color c;
   int status; //0 = in fallIngredients, 1 = falling, 2 = in sandwichStack, 3 = disappeared at the bottom of screen
   PImage texture;
-  Ingredients(String n,int W, int H, int R, int G, int B){
+  Ingredients(String n,int W, int H){
     name = n;
     w = W;
     h = H;
-    c = color(R, G, B);
     ix = (float)(random(600));
     iy = 0;
     status = 0;
-    //texture = img;
-    //texture.resize(40, 5);
   }
   
   Ingredients(Ingredients i){
     name = i.name;
     w = i.w;
     h = i.h;
-    c = i.c;
     ix = (float)(random(600));
     iy = i.iy;
     status = i.status;
   }
-  /*void move(Player player){
-    if(status == 1){
-      iy += 0.05;
-      if(iy == player.getsY() && ix == player.getsX()){
-        status = 2;
-      }
-    }
-    if(iy == height){
-      status = 3;
-    }
-    if(status == 2){
-      ix = mouseX;
-    }
-    fill(c);
-    rect(ix,iy,w,h);
-  }*/
   
   Ingredients getInstance() {
     Ingredients i = new Ingredients(this);
@@ -53,7 +32,6 @@ class Ingredients{
     if ((int)iy == (int)player.getsY() - h && (int)ix >= (int)mouseX && (int)ix <= (int)mouseX + 150){
       status = 2;
       player.setsY(player.getsY() - h);
-      //iy = player.getsY();
     }
     if (status == 1){
       iy += 5;
@@ -85,9 +63,7 @@ class Ingredients{
   int getStatus(){
     return status;
   }
-  color getColor(){
-    return c;
-  }
+
   float getiX(){
     return ix;
   }
