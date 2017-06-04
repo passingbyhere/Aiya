@@ -21,7 +21,6 @@ void setup(){
   rect(width/2,height,20,10);
   gIngredients = new ArrayList<Ingredients>();
   bIngredients = new ArrayList<Ingredients>();
-  
   ((meal.getBreakfast()).get(0)).setTexture(hamImg);
   ((meal.getBreakfast()).get(1)).setTexture(cheeseImg);
   gIngredients.add((meal.getBreakfast()).get(0));
@@ -29,10 +28,10 @@ void setup(){
   //fallIngredients.enqueue(gIngredients.get(0));
   //fallIngredients.enqueue(gIngredients.get(1));
   holder.add(new Ingredients(ham2));
-  holder.get(0).setTexture(hamImg);
+  //holder.get(0).setTexture(hamImg);
   holder.get(0).setStatus(1);
   holder.add(new Ingredients(cheese2));
-  holder.get(1).setTexture(cheeseImg);
+  //holder.get(1).setTexture(cheeseImg);
   holder.get(1).setStatus(1);
   //image(plateimg, width/2, height);
   playa.setPoints(0);
@@ -48,10 +47,12 @@ void draw(){
   if ((int)(holder.get(holder.size()-1)).getiY() >= (int)height/2){
     if ((int)random(2) == 0) {
       Ingredients h = ham2.getInstance();
+      h.setTexture(hamImg);
       fallIngredients.enqueue(h);
     }
     else {
       Ingredients c = cheese2.getInstance();
+      c.setTexture(cheeseImg);
       fallIngredients.enqueue(c);
 
     }
@@ -63,6 +64,12 @@ void draw(){
   }
   //move (always)
   for (Ingredients i: holder){
+    if (i.getName().equals("ham")){
+      i.setTexture(hamImg); 
+    }
+    if (i.getName().equals("cheese")){
+      i.setTexture(cheeseImg);
+    }
     i.move(playa);
   }
   /*for (int i = 0; i < holder.size(); i+=1){
@@ -81,4 +88,11 @@ void draw(){
   }*/
   //ham2.setTexture(hamImg);
   //cheese2.setTexture(hamImg);
+  
+    /*pushMatrix();
+    translate(ix, iy);
+    image(texture, 0, 0);
+    texture.resize(40, 10);
+    popMatrix(); */
+    
 }

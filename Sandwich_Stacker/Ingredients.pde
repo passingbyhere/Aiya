@@ -78,6 +78,10 @@ class Ingredients{
   }
   
   //accessor
+  String getName(){
+    return name;
+  }
+  
   int getStatus(){
     return status;
   }
@@ -99,9 +103,8 @@ class Ingredients{
     status = stat;
   }
   
-  String setTexture(PImage img){
+  void setTexture(PImage img){
     texture = img;
-    return "set sucessful";
   }
 }
   
