@@ -68,7 +68,7 @@ class Ingredients{
     pushMatrix();
     translate(ix, iy);
     image(texture, 0, 0);
-    texture.resize(40, 10);
+    texture.resize(50, 10);
     popMatrix();
   }
   

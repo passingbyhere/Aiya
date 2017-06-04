@@ -7,7 +7,7 @@ class Meal{
   
   public Meal(){
     ham.setTexture(hamImg);
-    cheese.setTexture(hamImg);
+    cheese.setTexture(cheeseImg);
     breakfast.add(ham);
     breakfast.add(cheese);
   }
