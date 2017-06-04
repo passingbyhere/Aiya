@@ -2,6 +2,15 @@ class Player {
   private int points, strikes, level;
   private float sX, sY;
 
+  //constructor
+  Player(){
+    points = 0;
+    strikes = 0;
+    level = 1;
+    sX = mouseX;
+    sY = 500;
+  }
+  
   //accessors
   public float getsX(){
     return sX;
