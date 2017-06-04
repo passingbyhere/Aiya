@@ -2,10 +2,12 @@ class Meal{
   
   ArrayList<Ingredients> breakfast = new ArrayList<Ingredients>();
   
-  Ingredients ham = new Ingredients("ham", 40, 10, 240, 162, 162, "ham.png");
-  Ingredients cheese = new Ingredients("cheese", 40, 5, 249, 250, 119, "ham.png");
+  Ingredients ham = new Ingredients("ham", 40, 10, 240, 162, 162);
+  Ingredients cheese = new Ingredients("cheese", 40, 5, 249, 250, 119);
   
   public Meal(){
+    ham.setTexture(hamImg);
+    cheese.setTexture(hamImg);
     breakfast.add(ham);
     breakfast.add(cheese);
   }

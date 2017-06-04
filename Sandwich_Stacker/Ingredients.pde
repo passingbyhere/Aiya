@@ -5,7 +5,7 @@ class Ingredients{
   color c;
   int status; //0 = in fallIngredients, 1 = falling, 2 = in sandwichStack, 3 = disappeared at the bottom of screen
   PImage texture;
-  Ingredients(String n,int W, int H, int R, int G, int B, String text){
+  Ingredients(String n,int W, int H, int R, int G, int B){
     name = n;
     w = W;
     h = H;
@@ -13,8 +13,8 @@ class Ingredients{
     ix = (float)(random(600));
     iy = 0;
     status = 0;
-    texture = loadImage(text);
-    texture.resize(40, 5);
+    //texture = img;
+    //texture.resize(40, 5);
   }
   
   Ingredients(Ingredients i){
@@ -68,6 +68,7 @@ class Ingredients{
     pushMatrix();
     translate(ix, iy);
     image(texture, 0, 0);
+    texture.resize(40, 10);
     popMatrix();
   }
   
@@ -89,10 +90,18 @@ class Ingredients{
   float getiY(){
     return iy;
   }
+  PImage getTexture(){
+    return texture;
+  }
   
   //mutator
   void setStatus(int stat){
     status = stat;
+  }
+  
+  String setTexture(PImage img){
+    texture = img;
+    return "set sucessful";
   }
 }
   

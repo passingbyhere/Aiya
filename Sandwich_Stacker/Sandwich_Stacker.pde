@@ -1,4 +1,6 @@
 PImage img;
+PImage hamImg;
+PImage cheeseImg;
 int maxPoints, level;
 ALQueue<Ingredients> fallIngredients = new ALQueue<Ingredients>();
 ArrayList<Ingredients> gIngredients, bIngredients;
@@ -7,24 +9,31 @@ ArrayList<Ingredients> holder = new ArrayList<Ingredients>();
 Meal meal = new Meal();
 Player playa = new Player();
 
-Ingredients ham2 = new Ingredients("ham", 40, 10, 240, 162, 162, "ham.png");
-Ingredients cheese2 = new Ingredients("cheese", 40, 5, 249, 250, 119, "ham.png");
+Ingredients ham2 = new Ingredients("ham", 40, 10, 240, 162, 162);
+Ingredients cheese2 = new Ingredients("cheese", 40, 5, 249, 250, 119);
+
 
 void setup(){
   size(600, 567);
   img = loadImage("fridge.jpg");
-  //plateimg = loadImage("plate.png");
+  hamImg = loadImage("ham.png");
+  cheeseImg = loadImage("cheese.png");
   rect(width/2,height,20,10);
   gIngredients = new ArrayList<Ingredients>();
   bIngredients = new ArrayList<Ingredients>();
   
-  
+  ((meal.getBreakfast()).get(0)).setTexture(hamImg);
+  ((meal.getBreakfast()).get(1)).setTexture(cheeseImg);
   gIngredients.add((meal.getBreakfast()).get(0));
   gIngredients.add((meal.getBreakfast()).get(1));
   //fallIngredients.enqueue(gIngredients.get(0));
   //fallIngredients.enqueue(gIngredients.get(1));
   holder.add(new Ingredients(ham2));
+  holder.get(0).setTexture(hamImg);
   holder.get(0).setStatus(1);
+  holder.add(new Ingredients(cheese2));
+  holder.get(1).setTexture(cheeseImg);
+  holder.get(1).setStatus(1);
   //image(plateimg, width/2, height);
   playa.setPoints(0);
   playa.setsY(500);
@@ -33,16 +42,18 @@ void setup(){
 
 void draw(){
   image(img, 0, 0);
-  //image(plateimg, mouseX, mouseY);
   fill(255,255,255);
   rect(mouseX, 500, 100, 10);
   //when holder's last item hits 1/2 point, then ask first item in falling to set status 1 && add to holder.
   if ((int)(holder.get(holder.size()-1)).getiY() >= (int)height/2){
     if ((int)random(2) == 0) {
-      fallIngredients.enqueue(ham2.getInstance());
+      Ingredients h = ham2.getInstance();
+      fallIngredients.enqueue(h);
     }
     else {
-      fallIngredients.enqueue(cheese2.getInstance());
+      Ingredients c = cheese2.getInstance();
+      fallIngredients.enqueue(c);
+
     }
     
     Ingredients i = fallIngredients.dequeue();
@@ -68,5 +79,6 @@ void draw(){
       
     }
   }*/
-  
+  //ham2.setTexture(hamImg);
+  //cheese2.setTexture(hamImg);
 }
