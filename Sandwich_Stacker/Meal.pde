@@ -16,19 +16,19 @@ class Meal{
   Ingredients tomato = new Ingredients("tomato", 40, 10);
   
   //dinner
-<<<<<<< HEAD
+
   Ingredients ham = new Ingredients("ham", 40, 10);  
   Ingredients onion = new Ingredients("onion", 40, 10);
  
   //badFood
   Ingredients badEgg = new Ingredients("badEgg", 40, 10);
   Ingredients bananaPeel = new Ingredients ("bananaPeel", 40, 10);
-=======
-  Ingredients beef = new Ingredients("beef", 40, 10);
+
+  //Ingredients beef = new Ingredients("beef", 40, 10);
   //Ingredients lettuce = new Ingredients("lettuce", 40, 10);
   //Ingredients tomato = new Ingredients("tomato", 40, 10);
   //Ingredients beef = new Ingredients("beef", 40, 10);
->>>>>>> 1220627a4d60ec734b09bf6bc557f8f1e7fd36c8
+
   
   public Meal(){
     //set textures for Breakfast Ingredients

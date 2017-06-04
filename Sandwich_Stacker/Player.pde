@@ -6,7 +6,7 @@ class Player {
   Player(){
     points = 0;
     strikes = 0;
-    level = 1;
+    level = 2;
     sX = mouseX;
     sY = 500;
   }
