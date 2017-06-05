@@ -48,6 +48,7 @@ void setup(){
   onionImg = loadImage("onion.png");
   badEggImg = loadImage("badEgg.png");
   bananaPeelImg = loadImage("bananaPeel.png");
+
   
   rect(width/2,height,20,10);
   
@@ -63,7 +64,7 @@ void setup(){
 
 void draw(){
   image(img, 0, 0);
-  fill(255,255,255);
+  fill(232,190,136);
   rect(mouseX, 500, 100, 10);
   textSize(20);
   text("Points: ", 10, 30); 
@@ -96,7 +97,7 @@ void draw(){
       if(time == 0){
         finishedLvl += 1;
         text("FINISH", 250, 283);
-        if(playa.getlvlPoints() >= 600){
+        if(playa.getlvlPoints() >= 800){
           level = 2;
           setupLvl();          
           playa.setLevel(2);
@@ -142,7 +143,7 @@ void draw(){
       if(time == 0){
         finishedLvl += 1;
         text("FINISH", 250, 283);
-        if(playa.getlvlPoints() >= 600){
+        if(playa.getlvlPoints() >= 1000){
           level = 3;
           setupLvl();          
           playa.setLevel(3);
@@ -183,7 +184,7 @@ void draw(){
       if(time == 0){
         finishedLvl += 1;
         text("FINISH", 250, 283);
-        if(playa.getlvlPoints() >= 600){
+        if(playa.getlvlPoints() >= 1200){
           text("WINNER", 250, 283);
         }
         else{

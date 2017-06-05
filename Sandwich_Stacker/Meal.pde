@@ -5,6 +5,7 @@ class Meal{
   ArrayList<Ingredients> dinner = new ArrayList<Ingredients>();
   ArrayList<Ingredients> badFood = new ArrayList<Ingredients>();
   
+  
   //breakfast
   Ingredients bacon = new Ingredients("bacon", 40, 10, 50);  
   Ingredients cheese = new Ingredients("cheese", 40, 5, 10);
