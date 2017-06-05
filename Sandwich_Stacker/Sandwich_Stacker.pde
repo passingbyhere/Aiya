@@ -75,7 +75,7 @@ void draw(){
   }
   lvlStart = true;
   //when holder's last item hits 1/2 point, then ask first item in falling to set status 1 && add to holder.
-  if ((int)(holder.get(holder.size()-1)).getiY() >= (int)height/2){
+  if ((int)(holder.get(holder.size()-1)).getiY() >= (int)height/6){
     if (level == 1){
       if ((int)random(3) == 0) {
         Ingredients b = bacon2.getInstance();
@@ -98,8 +98,8 @@ void draw(){
         text("FINISH", 250, 283);
         if(playa.getlvlPoints() >= 600){
           level = 2;
+          setupLvl();          
           playa.setLevel(2);
-          setupLvl();
         }
         else{
           text("Not enough points. Restarting.", 250, 283);
@@ -144,8 +144,8 @@ void draw(){
         text("FINISH", 250, 283);
         if(playa.getlvlPoints() >= 600){
           level = 3;
+          setupLvl();          
           playa.setLevel(3);
-          setupLvl();
         }
         else{
           text("Not enough points. Restarting.", 250, 283);
