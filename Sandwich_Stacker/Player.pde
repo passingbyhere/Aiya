@@ -1,12 +1,12 @@
-class Player {
-  private int points, strikes, level;
+class Player{
+  private int points, strikes, level, lvlPoints;
   private float sX, sY;
-
+  ALStack<Ingredients> sandwich = new ALStack<Ingredients>();
   //constructor
   Player(){
     points = 0;
     strikes = 0;
-    level = 2;
+    level = 1;
     sX = mouseX;
     sY = 500;
   }
@@ -20,6 +20,9 @@ class Player {
   }
   public int getPoints(){
     return points;
+  }
+  public int getlvlPoints(){
+    return lvlPoints;
   }
   public int getStrikes(){
     return strikes;
@@ -37,6 +40,9 @@ class Player {
   }
   public void setPoints(int pts){
     points = pts;
+  }
+  public void setlvlPoints(int pts){
+    lvlPoints = pts;
   }
   public void setStrikes(int STRIKES){
     strikes = STRIKES;

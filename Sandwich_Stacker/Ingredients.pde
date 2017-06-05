@@ -4,13 +4,16 @@ class Ingredients{
   int w,h;
   int status; //0 = in fallIngredients, 1 = falling, 2 = in sandwichStack, 3 = disappeared at the bottom of screen
   PImage texture;
-  Ingredients(String n,int W, int H){
+  int points;
+  
+  Ingredients(String n,int W, int H, int pts){
     name = n;
     w = W;
     h = H;
     ix = (float)(random(600));
     iy = 0;
     status = 0;
+    points = pts;
   }
   
   Ingredients(Ingredients i){
@@ -20,6 +23,7 @@ class Ingredients{
     ix = (float)(random(600));
     iy = i.iy;
     status = i.status;
+    points = i.points;
   }
   
   Ingredients getInstance() {
@@ -32,6 +36,11 @@ class Ingredients{
     if ((int)iy == (int)player.getsY() - h && (int)ix >= (int)mouseX && (int)ix <= (int)mouseX + 150){
       status = 2;
       player.setsY(player.getsY() - h);
+      int pts = player.getPoints();
+      player.setPoints(pts + points);
+      player.setlvlPoints(player.getlvlPoints() + points);
+      System.out.println(player.getPoints());
+      player.sandwich.push(this);
     }
     if (status == 1){
       iy += 5;

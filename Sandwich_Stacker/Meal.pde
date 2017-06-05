@@ -6,23 +6,23 @@ class Meal{
   ArrayList<Ingredients> badFood = new ArrayList<Ingredients>();
   
   //breakfast
-  Ingredients bacon = new Ingredients("bacon", 40, 10);  
-  Ingredients cheese = new Ingredients("cheese", 40, 5);
-  Ingredients egg = new Ingredients("egg", 40, 10);
+  Ingredients bacon = new Ingredients("bacon", 40, 10, 50);  
+  Ingredients cheese = new Ingredients("cheese", 40, 5, 10);
+  Ingredients egg = new Ingredients("egg", 40, 10, 25);
   
   //lunch
-  Ingredients beef = new Ingredients("beef", 40, 10);
-  Ingredients lettuce = new Ingredients("lettuce", 40, 10);
-  Ingredients tomato = new Ingredients("tomato", 40, 10);
+  Ingredients beef = new Ingredients("beef", 40, 10, 80);
+  Ingredients lettuce = new Ingredients("lettuce", 40, 10, 10);
+  Ingredients tomato = new Ingredients("tomato", 40, 10, 10);
   
   //dinner
 
-  Ingredients ham = new Ingredients("ham", 40, 10);  
-  Ingredients onion = new Ingredients("onion", 40, 10);
+  Ingredients ham = new Ingredients("ham", 40, 10, 90);  
+  Ingredients onion = new Ingredients("onion", 40, 10, 10);
  
   //badFood
-  Ingredients badEgg = new Ingredients("badEgg", 40, 10);
-  Ingredients bananaPeel = new Ingredients ("bananaPeel", 40, 10);
+  Ingredients badEgg = new Ingredients("badEgg", 40, 10, -25);
+  Ingredients bananaPeel = new Ingredients ("bananaPeel", 40, 10, -30);
 
   //Ingredients beef = new Ingredients("beef", 40, 10);
   //Ingredients lettuce = new Ingredients("lettuce", 40, 10);

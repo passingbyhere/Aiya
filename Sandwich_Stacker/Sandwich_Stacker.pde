@@ -10,32 +10,33 @@ PImage onionImg;
 PImage badEggImg;
 PImage bananaPeelImg;
 
-int maxPoints, level;
+int maxPoints, level, time, interval, finishedLvl;
 ALQueue<Ingredients> fallIngredients = new ALQueue<Ingredients>();
 ArrayList<Ingredients> gIngredients, bIngredients;
-ALStack<Ingredients> sandwich = new ALStack<Ingredients>();
 ArrayList<Ingredients> holder = new ArrayList<Ingredients>();
 Meal meal = new Meal();
 Player playa = new Player();
 boolean lvlStart;
 
 //----------------INGREDIENTS-------------------
-Ingredients ham2 = new Ingredients("ham", 40, 10);
-Ingredients cheese2 = new Ingredients("cheese", 40, 5);
-Ingredients egg2 = new Ingredients("egg", 40, 10);
-Ingredients bacon2 = new Ingredients("bacon", 40, 10);
-Ingredients tomato2 = new Ingredients("tomato", 40, 10);
-Ingredients lettuce2 = new Ingredients("lettuce", 40, 10);
-Ingredients beef2 = new Ingredients("beef", 40, 10);
-Ingredients onion2 = new Ingredients("onion", 40, 10);
-Ingredients badEgg2 = new Ingredients("badEgg", 40, 10);
-Ingredients bananaPeel2 = new Ingredients("bananaPeel", 40, 10);
+Ingredients ham2 = new Ingredients("ham", 40, 10, 90);
+Ingredients cheese2 = new Ingredients("cheese", 40, 5, 10);
+Ingredients egg2 = new Ingredients("egg", 40, 10, 25);
+Ingredients bacon2 = new Ingredients("bacon", 40, 10, 50);
+Ingredients tomato2 = new Ingredients("tomato", 40, 10, 10);
+Ingredients lettuce2 = new Ingredients("lettuce", 40, 10, 10);
+Ingredients beef2 = new Ingredients("beef", 40, 10, 80);
+Ingredients onion2 = new Ingredients("onion", 40, 10, 10);
+Ingredients badEgg2 = new Ingredients("badEgg", 40, 10, -25);
+Ingredients bananaPeel2 = new Ingredients("bananaPeel", 40, 10, -30);
 
 void setup(){
   size(600, 567);
   img = loadImage("fridge.jpg");
   level = playa.getLevel();
   lvlStart = false;
+  interval = 30;
+  finishedLvl = 0;
   //Ingredients image
   hamImg = loadImage("ham.png");
   cheeseImg = loadImage("cheese.png");
@@ -53,15 +54,22 @@ void setup(){
   gIngredients = new ArrayList<Ingredients>();
   bIngredients = new ArrayList<Ingredients>();
   
-  playa.setPoints(0);
-  playa.setsY(500);
-  playa.setsX(mouseX);
+  textSize(32);
+  text("Points: ", 10, 30); 
+  text(playa.getlvlPoints(), 80, 30);
+  text(time, 520, 30);
+  fill(295,295,295);
 }
 
 void draw(){
   image(img, 0, 0);
   fill(255,255,255);
   rect(mouseX, 500, 100, 10);
+  textSize(20);
+  text("Points: ", 10, 30); 
+  text(playa.getlvlPoints(), 80, 30);
+  text(time, 520, 30);
+  fill(295,295,295);
   if(lvlStart == false){
     setupLvl();
   }
@@ -84,6 +92,25 @@ void draw(){
         c.setTexture(cheeseImg);
         fallIngredients.enqueue(c);
       }
+      //when time runs out
+      if(time == 0){
+        finishedLvl += 1;
+        text("FINISH", 250, 283);
+        if(playa.getlvlPoints() >= 600){
+          level = 2;
+          playa.setLevel(2);
+          setupLvl();
+        }
+        else{
+          text("Not enough points. Restarting.", 250, 283);
+          playa.setPoints(playa.getPoints() - playa.getlvlPoints());
+          setupLvl();
+        }
+      }
+      else{
+        time = interval - int(millis()/1000) + (finishedLvl*30);
+      }
+      delay(10);
     }
     if (level == 2){
       if ((int)random(5) == 0) {
@@ -111,6 +138,25 @@ void draw(){
         l.setTexture(lettuceImg);
         fallIngredients.enqueue(l);
       }
+      //when time runs out
+      if(time == 0){
+        finishedLvl += 1;
+        text("FINISH", 250, 283);
+        if(playa.getlvlPoints() >= 600){
+          level = 3;
+          playa.setLevel(3);
+          setupLvl();
+        }
+        else{
+          text("Not enough points. Restarting.", 250, 283);
+          playa.setPoints(playa.getPoints() - playa.getlvlPoints());
+          setupLvl();
+        }
+        delay(10);
+      }
+      else{
+        time = interval - int(millis()/1000) + (finishedLvl*30);
+      }
     }
     if (level == 3){
       if ((int)random(4) == 0){
@@ -133,6 +179,23 @@ void draw(){
         bP.setTexture(bananaPeelImg);
         fallIngredients.enqueue(bP);
       }
+      //When time runs out
+      if(time == 0){
+        finishedLvl += 1;
+        text("FINISH", 250, 283);
+        if(playa.getlvlPoints() >= 600){
+          text("WINNER", 250, 283);
+        }
+        else{
+          text("Not enough points. Restarting.", 250, 283);
+          playa.setPoints(playa.getPoints() - playa.getlvlPoints());
+          setupLvl();
+        }
+      }
+      else{
+        time = interval - int(millis()/1000 + (finishedLvl*30));
+      }
+      delay(10);
     }
       Ingredients i = fallIngredients.dequeue();
       System.out.println(i);
@@ -178,7 +241,10 @@ void draw(){
 }
 
 void setupLvl(){
-  
+  time = interval;
+  playa.setsY(500);
+  playa.setlvlPoints(0);
+  holder.clear();
   //set images to corresponding ingredient
   //breakfast
   for (Ingredients i: meal.getBreakfast()){

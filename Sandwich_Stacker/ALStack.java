@@ -5,7 +5,6 @@
  *****************************************************/
 
 import java.util.ArrayList;
-
 public class ALStack<T> implements Stack<T>
 {
     private ArrayList<T> _stack;
@@ -44,7 +43,7 @@ public class ALStack<T> implements Stack<T>
     //chk for emptiness
     public boolean isEmpty()
     {
-        return _stack.size() - 1 == 0;
+        return _stack.size() == 0;
     }
-
+    
 }//end class ALStack
