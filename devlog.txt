@@ -1,6 +1,14 @@
 Team Aiya -- Elaina Chung & Lisa Eng
 APCS2 pd3
 
+June 5, 2017
+Lisa: created start page image, decided to use the plate as the bread.
+Elaina: fixing bug issues, trying to use stack (to recreated sanwich player made after a level
+
+June 2-4, 2017
+Lisa: Ingredients (that are shown as images) are falling!!!
+Elaian: created points and timer system. Made sure levels transitioned.
+
 June 1, 2017
 Lisa & Elaina: We went to the CS Dojo, one of the best/most helpful sessions we've ever been to. SHOUT OUT TO BILLY FOR HELPING US A LOT!!! We fixed the problem of having the ingredients falling simultaneously into falling one after another (by checking if the ingredient that is currently falling is displayed 1/2 way). We also got ingredients to stack on top of one another. We see the lighttt.
 
