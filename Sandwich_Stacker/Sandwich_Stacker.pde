@@ -9,6 +9,7 @@ PImage beefImg;
 PImage onionImg;
 PImage badEggImg;
 PImage bananaPeelImg;
+PImage start;
 
 int maxPoints, level, time, interval, finishedLvl;
 ALQueue<Ingredients> fallIngredients = new ALQueue<Ingredients>();
@@ -16,7 +17,7 @@ ArrayList<Ingredients> gIngredients, bIngredients;
 ArrayList<Ingredients> holder = new ArrayList<Ingredients>();
 Meal meal = new Meal();
 Player playa = new Player();
-boolean lvlStart;
+boolean lvlStart, gameStart;
 
 //----------------INGREDIENTS-------------------
 Ingredients ham2 = new Ingredients("ham", 40, 10, 90);
@@ -33,8 +34,10 @@ Ingredients bananaPeel2 = new Ingredients("bananaPeel", 40, 10, -30);
 void setup(){
   size(600, 567);
   img = loadImage("fridge.jpg");
+  start = loadImage("start.png");
   level = playa.getLevel();
   lvlStart = false;
+  gameStart = false;
   interval = 30;
   finishedLvl = 0;
   //Ingredients image
@@ -64,6 +67,10 @@ void setup(){
 }
 
 void draw(){
+  if(gameStart == false){
+    image(start, 0, 0);
+  }
+  else{
   image(img, 0, 0);
   fill(232,190,136);
   rect(mouseX, 500, 100, 10);
@@ -100,9 +107,9 @@ void draw(){
         finishedLvl += 1;
         text("FINISH", 200, 40);
         if(playa.getlvlPoints() >= 800){
-          level = 2;         
+          level = 2; 
+          setupLvl();
           playa.setLevel(2);
-          lvlStart = false;
           text("Points earned: ", 200, 70);
           text(playa.getlvlPoints(), 350, 70);
           text("Total Points: ", 200, 90);
@@ -111,7 +118,7 @@ void draw(){
         else{
           text("Not enough points. Restarting.", 200, 50);
           playa.setPoints(playa.getPoints() - playa.getlvlPoints());
-          lvlStart = false; 
+          setupLvl();
         }
                        
       }
@@ -150,9 +157,9 @@ void draw(){
         finishedLvl += 1;
         text("FINISH", 200, 40);
         if(playa.getlvlPoints() >= 1000){
-          level = 3;        
+          level = 3;  
+          setupLvl();
           playa.setLevel(3);
-          lvlStart = false;
           text("Points earned: ", 200, 70);
           text(playa.getlvlPoints(), 300, 70);
           text("Total Points: ", 200, 90);
@@ -161,7 +168,7 @@ void draw(){
         else{
           text("Not enough points. Restarting.", 200, 50);
           playa.setPoints(playa.getPoints() - playa.getlvlPoints());
-          lvlStart = false;              
+          setupLvl();           
         }
       }
       else{
@@ -250,6 +257,7 @@ void draw(){
       }            
       i.move(playa);
     }
+  }
 }
 
 void setupLvl(){
@@ -380,5 +388,11 @@ void setupLvl(){
       }
       holder.get(holder.size()-1).setStatus(1);
     }     
+  }
+}
+
+void mouseClicked(){
+  if(gameStart == false){
+    gameStart = true;
   }
 }
