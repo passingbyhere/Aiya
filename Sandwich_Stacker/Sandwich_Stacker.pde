@@ -72,7 +72,7 @@ void draw(){
   text(playa.getlvlPoints(), 80, 30);
   text("Time: ", 460, 30);
   text(time, 520, 30);
-  fill(295,295,295);
+  fill(5,3,3);
   if(lvlStart == false){
     setupLvl();
   }
@@ -98,22 +98,26 @@ void draw(){
       //when time runs out
       if(time == 0){
         finishedLvl += 1;
-        text("FINISH", 250, 283);
+        text("FINISH", 200, 40);
         if(playa.getlvlPoints() >= 800){
-          level = 2;
-          setupLvl();          
+          level = 2;         
           playa.setLevel(2);
+          lvlStart = false;
+          text("Points earned: ", 200, 70);
+          text(playa.getlvlPoints(), 350, 70);
+          text("Total Points: ", 200, 90);
+          text(playa.getPoints(), 350, 90);   
         }
         else{
-          text("Not enough points. Restarting.", 250, 283);
+          text("Not enough points. Restarting.", 200, 50);
           playa.setPoints(playa.getPoints() - playa.getlvlPoints());
-          setupLvl();
+          lvlStart = false; 
         }
+                       
       }
       else{
         time = interval - int(millis()/1000) + (finishedLvl*30);
       }
-      delay(10);
     }
     if (level == 2){
       if ((int)random(5) == 0) {
@@ -144,18 +148,21 @@ void draw(){
       //when time runs out
       if(time == 0){
         finishedLvl += 1;
-        text("FINISH", 250, 283);
+        text("FINISH", 200, 40);
         if(playa.getlvlPoints() >= 1000){
-          level = 3;
-          setupLvl();          
+          level = 3;        
           playa.setLevel(3);
+          lvlStart = false;
+          text("Points earned: ", 200, 70);
+          text(playa.getlvlPoints(), 300, 70);
+          text("Total Points: ", 200, 90);
+          text(playa.getPoints(), 300, 90);                 
         }
         else{
-          text("Not enough points. Restarting.", 250, 283);
+          text("Not enough points. Restarting.", 200, 50);
           playa.setPoints(playa.getPoints() - playa.getlvlPoints());
-          setupLvl();
+          lvlStart = false;              
         }
-        delay(10);
       }
       else{
         time = interval - int(millis()/1000) + (finishedLvl*30);
@@ -185,20 +192,22 @@ void draw(){
       //When time runs out
       if(time == 0){
         finishedLvl += 1;
-        text("FINISH", 250, 283);
+        text("FINISH", 200, 40);
         if(playa.getlvlPoints() >= 1200){
-          text("WINNER", 250, 283);
+          text("WINNER", 200, 50);
+          text("Total points: ", 150, 60);
+          text(playa.getPoints(), 300, 60);                        
         }
         else{
-          text("Not enough points. Restarting.", 250, 283);
+          text("Not enough points. Restarting.", 200, 50);
           playa.setPoints(playa.getPoints() - playa.getlvlPoints());
-          setupLvl();
+          lvlStart = false;                 
         }
       }
       else{
-        time = interval - int(millis()/1000 + (finishedLvl*30));
+         time = interval - int(millis()/1000) + (finishedLvl*30);       
       }
-      delay(10);
+                     
     }
       Ingredients i = fallIngredients.dequeue();
       System.out.println(i);

@@ -43,7 +43,12 @@ class Ingredients{
       player.sandwich.push(this);
     }
     if (status == 1){
-      iy += 5;
+      if(player.getLevel() == 1){
+        iy += 2.5;
+      }
+      if(player.getLevel() == 2 || player.getLevel() == 5){
+        iy += 5;
+      }
     }
     if (iy >= height){
       status = 3;
