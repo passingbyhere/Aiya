@@ -58,6 +58,7 @@ void setup(){
   textSize(32);
   text("Points: ", 10, 30); 
   text(playa.getlvlPoints(), 80, 30);
+  text("Time: ", 460, 30);
   text(time, 520, 30);
   fill(295,295,295);
 }
@@ -69,6 +70,7 @@ void draw(){
   textSize(20);
   text("Points: ", 10, 30); 
   text(playa.getlvlPoints(), 80, 30);
+  text("Time: ", 460, 30);
   text(time, 520, 30);
   fill(295,295,295);
   if(lvlStart == false){
@@ -242,10 +244,10 @@ void draw(){
 }
 
 void setupLvl(){
+  holder.clear();
   time = interval;
   playa.setsY(500);
   playa.setlvlPoints(0);
-  holder.clear();
   //set images to corresponding ingredient
   //breakfast
   for (Ingredients i: meal.getBreakfast()){
@@ -294,7 +296,7 @@ void setupLvl(){
   }
   
   //determine level
-  if (playa.getLevel() == 1){
+  if (playa.getLevel() == 1|| playa.getLevel() == 2||playa.getLevel() == 3 ){
     //add good ingredients into gIngredients
     for (Ingredients i: meal.getBreakfast()){
       gIngredients.add(i);
@@ -313,7 +315,7 @@ void setupLvl(){
     }    
   }
   
-  if(playa.getLevel() == 2){
+  if(playa.getLevel() == 2 ||playa.getLevel() == 3){
     for (Ingredients i: meal.getLunch()){
       gIngredients.add(i);
     }
