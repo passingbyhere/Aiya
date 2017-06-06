@@ -18,6 +18,8 @@ ArrayList<Ingredients> holder = new ArrayList<Ingredients>();
 Meal meal = new Meal();
 Player playa = new Player();
 boolean lvlStart, gameStart;
+//how many ingreidents are in each type of sanwich that is created
+int bacon, cheese, egg, tomato, beef, lettuce, onion, ham, badEgg, bananaPeel;
 
 //----------------INGREDIENTS-------------------
 Ingredients ham2 = new Ingredients("ham", 40, 10, 90);
@@ -87,12 +89,13 @@ void draw(){
   //when holder's last item hits 1/2 point, then ask first item in falling to set status 1 && add to holder.
   if ((int)(holder.get(holder.size()-1)).getiY() >= (int)height/6){
     if (level == 1){
-      if ((int)random(3) == 0) {
+      int num = (int)random(3);
+      if (num == 0) {
         Ingredients b = bacon2.getInstance();
         b.setTexture(baconImg);
         fallIngredients.enqueue(b);
       }
-      else if ((int)random(3) == 1) {
+      else if (num == 1) {
         Ingredients e = egg2.getInstance();
         e.setTexture(eggImg);
         fallIngredients.enqueue(e);
@@ -107,13 +110,64 @@ void draw(){
         finishedLvl += 1;
         text("FINISH", 200, 40);
         if(playa.getlvlPoints() >= 800){
-          level = 2; 
-          setupLvl();
-          playa.setLevel(2);
           text("Points earned: ", 200, 70);
           text(playa.getlvlPoints(), 350, 70);
           text("Total Points: ", 200, 90);
-          text(playa.getPoints(), 350, 90);   
+          text(playa.getPoints(), 350, 90);
+          delay(1000);
+          level = 2; 
+          setupLvl();
+          playa.setLevel(2);
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("bacon")){
+              bacon+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("lettuce")){
+              lettuce+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("tomato")){
+              tomato+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("cheese")){
+              cheese+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("ham")){
+              ham+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("egg")){
+              egg+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("badEgg")){
+              badEgg+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("bananaPeel")){
+              bananaPeel+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("onion")){
+              onion+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("beef")){
+              beef+=1;
+            }
+          } 
         }
         else{
           text("Not enough points. Restarting.", 200, 50);
@@ -127,22 +181,23 @@ void draw(){
       }
     }
     if (level == 2){
-      if ((int)random(5) == 0) {
+      int num = (int)random(5);
+      if (num == 0) {
         Ingredients b1 = beef2.getInstance();
         b1.setTexture(beefImg);
         fallIngredients.enqueue(b1);
       }
-      else if ((int)random(5) == 1) {
+      else if (num == 1) {
         Ingredients t = tomato2.getInstance();
         t.setTexture(tomatoImg);
         fallIngredients.enqueue(t);
       }
-      else if ((int)random(5) == 2) {
+      else if (num == 2) {
         Ingredients bE = badEgg2.getInstance();
         bE.setTexture(badEggImg);
         fallIngredients.enqueue(bE);
       }
-      else if ((int)random(5) == 3) {
+      else if (num == 3) {
         Ingredients bP = bananaPeel2.getInstance();
         bP.setTexture(bananaPeelImg);
         fallIngredients.enqueue(bP);
@@ -155,6 +210,7 @@ void draw(){
       //when time runs out
       if(time == 0){
         finishedLvl += 1;
+
         text("FINISH", 200, 40);
         if(playa.getlvlPoints() >= 1000){
           level = 3;  
@@ -163,7 +219,57 @@ void draw(){
           text("Points earned: ", 200, 70);
           text(playa.getlvlPoints(), 300, 70);
           text("Total Points: ", 200, 90);
-          text(playa.getPoints(), 300, 90);                 
+          text(playa.getPoints(), 300, 90);
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("bacon")){
+              bacon+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("lettuce")){
+              lettuce+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("tomato")){
+              tomato+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("cheese")){
+              cheese+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("ham")){
+              ham+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("egg")){
+              egg+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("badEgg")){
+              badEgg+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("bananaPeel")){
+              bananaPeel+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("onion")){
+              onion+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("beef")){
+              beef+=1;
+            }
+          } 
         }
         else{
           text("Not enough points. Restarting.", 200, 50);
@@ -176,17 +282,18 @@ void draw(){
       }
     }
     if (level == 3){
-      if ((int)random(4) == 0){
+      int num = (int)random(4);
+      if (num == 0){
         Ingredients h = ham2.getInstance();
         h.setTexture(hamImg);
         fallIngredients.enqueue(h);
       }
-      else if ((int)random(4) == 1) {
+      else if (num == 1) {
         Ingredients o = onion2.getInstance();
         o.setTexture(onionImg);
         fallIngredients.enqueue(o);
       }
-      else if ((int)random(4) == 2){
+      else if (num == 2){
         Ingredients bE = badEgg2.getInstance();
         bE.setTexture(badEggImg);
         fallIngredients.enqueue(bE);
@@ -203,7 +310,57 @@ void draw(){
         if(playa.getlvlPoints() >= 1200){
           text("WINNER", 200, 50);
           text("Total points: ", 150, 60);
-          text(playa.getPoints(), 300, 60);                        
+          text(playa.getPoints(), 300, 60);
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("bacon")){
+              bacon+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("lettuce")){
+              lettuce+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("tomato")){
+              tomato+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("cheese")){
+              cheese+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("ham")){
+              ham+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("egg")){
+              egg+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("badEgg")){
+              badEgg+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("bananaPeel")){
+              bananaPeel+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("onion")){
+              onion+=1;
+            }
+          }
+          while (!playa.sandwich.isEmpty()){
+            if (playa.sandwich.pop().getName().equals("beef")){
+              beef+=1;
+            }
+          } 
         }
         else{
           text("Not enough points. Restarting.", 200, 50);
@@ -217,7 +374,7 @@ void draw(){
                      
     }
       Ingredients i = fallIngredients.dequeue();
-      System.out.println(i);
+      //System.out.println(i);
       holder.add(i);
       i.setStatus(1);
     }
@@ -390,6 +547,8 @@ void setupLvl(){
     }     
   }
 }
+
+
 
 void mouseClicked(){
   if(gameStart == false){

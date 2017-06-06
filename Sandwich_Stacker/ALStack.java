@@ -30,7 +30,7 @@ public class ALStack<T> implements Stack<T>
     //means of viewing top element without removing
     public T peek( )
     {
-        return (T)_stack.get(0);
+        return _stack.get(0);
     }
 
     //means of removal
@@ -43,6 +43,7 @@ public class ALStack<T> implements Stack<T>
     //chk for emptiness
     public boolean isEmpty()
     {
+        System.out.println(_stack.size());
         return _stack.size() == 0;
     }
     

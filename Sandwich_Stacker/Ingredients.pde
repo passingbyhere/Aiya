@@ -33,20 +33,21 @@ class Ingredients{
   }
   
   void move(Player player){
-    if ((int)iy == (int)player.getsY() - h && (int)ix >= (int)mouseX && (int)ix <= (int)mouseX + 150){
+    if ((int)iy == (int)player.getsY() - h && (int)ix >= (int)mouseX && (int)ix <= (int)mouseX + 100){
       status = 2;
       player.setsY(player.getsY() - h);
       int pts = player.getPoints();
       player.setPoints(pts + points);
       player.setlvlPoints(player.getlvlPoints() + points);
-      System.out.println(player.getPoints());
+      //System.out.println(player.getPoints());
       player.sandwich.push(this);
+      System.out.println(player.sandwich.peek());
     }
     if (status == 1){
       if(player.getLevel() == 1){
         iy += 2.5;
       }
-      if(player.getLevel() == 2 || player.getLevel() == 5){
+      if(player.getLevel() == 2 || player.getLevel() == 3){
         iy += 5;
       }
     }
@@ -55,7 +56,7 @@ class Ingredients{
       iy = 800;
     }
     if(status == 2){
-      ix = mouseX + 30;
+      ix = mouseX + 25;
     }
     pushMatrix();
     translate(ix, iy);
