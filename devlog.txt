@@ -4,7 +4,7 @@ APCS2 pd3
 June 6, 2017
 Lisa & Elaina: Used sandwich stack to keep track the ingredients on the bread. We will use this to display the number and type of ingreidents he/she used.
 Lisa: Created images to show what the player caught for each round. Updated READ.me.
-Elaina: Got delay to work so that text could be displayed between each level. The text will display the number of points he/she earned.
+Elaina: Got delay to work so that text could be displayed between each level. The text will display the number of points he/she earned. Worked on displaying the number and kind of ingredients player used in their sandwich.
 
 June 5, 2017
 Lisa: created start page image, decided to use the plate as the bread.
