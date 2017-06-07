@@ -5,6 +5,7 @@ class Ingredients{
   int status; //0 = in fallIngredients, 1 = falling, 2 = in sandwichStack, 3 = disappeared at the bottom of screen
   PImage texture;
   int points;
+
   
   Ingredients(String n,int W, int H, int pts){
     name = n;
@@ -41,7 +42,38 @@ class Ingredients{
       player.setlvlPoints(player.getlvlPoints() + points);
       //System.out.println(player.getPoints());
       player.sandwich.push(this);
-      System.out.println(player.sandwich.peek());
+      if (this.getName().equals("bacon")){
+         player.setBacon(player.getBacon()+1);
+      }
+      if (this.getName().equals("lettuce")){
+         player.setLettuce(player.getLettuce()+1);
+      }
+      if (this.getName().equals("tomato")){
+         player.setTomato(player.getTomato()+1);
+       }
+       if (this.getName().equals("cheese")){
+         player.setCheese(player.getCheese()+1);
+       }
+       if (this.getName().equals("ham")){
+         player.setHam(player.getHam()+1);
+       }
+       if (this.getName().equals("egg")){
+         player.setEgg(player.getEgg()+1);
+       }
+       if (this.getName().equals("badEgg")){
+         player.setbadEgg(player.getbadEgg()+1);
+       }
+       if (this.getName().equals("bananaPeel")){
+         player.setbananaPeel(player.getbananaPeel()+1);
+       }
+       if (this.getName().equals("onion")){
+         player.setOnion(player.getOnion()+1);
+       }
+       if (this.getName().equals("beef")){
+         player.setBeef(player.getBeef()+1);
+       }
+       System.out.println(player.sandwich.peek());
+       player.sandwich.pop();
     }
     if (status == 1){
       if(player.getLevel() == 1){

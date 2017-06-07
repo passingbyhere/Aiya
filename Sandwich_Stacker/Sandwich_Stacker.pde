@@ -10,6 +10,9 @@ PImage onionImg;
 PImage badEggImg;
 PImage bananaPeelImg;
 PImage start;
+PImage breakfast;
+PImage lunch;
+PImage dinner;
 
 int maxPoints, level, time, interval, finishedLvl, myMillis;
 ALQueue<Ingredients> fallIngredients = new ALQueue<Ingredients>();
@@ -18,8 +21,6 @@ ArrayList<Ingredients> holder = new ArrayList<Ingredients>();
 Meal meal = new Meal();
 Player playa = new Player();
 boolean lvlStart, gameStart, endLevel;
-//how many ingreidents are in each type of sanwich that is created
-int bacon, cheese, egg, tomato, beef, lettuce, onion, ham, badEgg, bananaPeel;
 
 //----------------INGREDIENTS-------------------
 Ingredients ham2 = new Ingredients("ham", 40, 10, 90);
@@ -54,6 +55,9 @@ void setup(){
   onionImg = loadImage("onion.png");
   badEggImg = loadImage("badEgg.png");
   bananaPeelImg = loadImage("bananaPeel.png");
+  breakfast = loadImage("breakfast.png");
+  lunch = loadImage("lunch.png");
+  dinner = loadImage("dinner.png");
 
   
   rect(width/2,height,20,10);
@@ -83,7 +87,7 @@ void draw(){
   text(playa.getlvlPoints(), 80, 30);
   text("Time: ", 460, 30);
   text(time, 520, 30);
-  fill(5,3,3);
+  
   if(lvlStart == false){
     System.out.println(level);
     myMillis = millis();
@@ -124,76 +128,32 @@ void draw(){
       }
       //when time runs out
       if(time == 0){
-        fill(232,190,136);
-        rect(mouseX, playa.getsY()-10, 100, 10);        
+        rect(mouseX, playa.getsY()-10, 100, 10);
         finishedLvl += 1;
-        text("FINISH", 200, 30);
         if(playa.getlvlPoints() >= 800){
-          text("Click to continue.", 200, 50);
-          text("Points earned: ", 200, 70);
-          text(playa.getlvlPoints(), 350, 70);
-          text("Total Points: ", 200, 90);
-          text(playa.getPoints(), 350, 90);
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("bacon")){
-              bacon+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("lettuce")){
-              lettuce+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("tomato")){
-              tomato+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("cheese")){
-              cheese+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("ham")){
-              ham+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("egg")){
-              egg+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("badEgg")){
-              badEgg+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("bananaPeel")){
-              bananaPeel+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("onion")){
-              onion+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("beef")){
-              beef+=1;
-            }
-          }
+          holder.clear();
+          image(breakfast, 0, 0);
+          fill(5,3,3);
+          text("FINISH", 250, 30);
+          text("Click to continue.", 200, 500);
+          text("Points earned: ", 200, 520);
+          text(playa.getlvlPoints(), 350, 520);
+          text("Total Points: ", 200, 540);
+          text(playa.getPoints(), 350, 540);
+          text(playa.getEgg(), 400, 175);
+          text(playa.getEgg(), 400, 275);
+          text(playa.getCheese(), 400, 375);
           myMillis = millis();
           lvlStart = false;
           endLevel = true;
           noLoop();  
         }
         else{
-          text("Not enough points. Click to restart.", 200, 50);
+          text("FINISH", 250, 30);
+          text("Not enough points. Click to restart.", 125, 50);
+          fill(232,190,136);
           playa.setPoints(playa.getPoints() - playa.getlvlPoints());
           myMillis = millis();
-          System.out.println(myMillis);
           lvlStart = false;
           noLoop();
         }
@@ -236,70 +196,28 @@ void draw(){
         fill(232,190,136);
         rect(mouseX, playa.getsY()-10, 100, 10);  
         finishedLvl += 1;
-
-        text("FINISH", 200, 30);
         if(playa.getlvlPoints() >= 1000){
-          text("Click to continue.", 200, 50);
-          text("Points earned: ", 200, 70);
-          text(playa.getlvlPoints(), 350, 70);
-          text("Total Points: ", 200, 90);
-          text(playa.getPoints(), 350, 90);
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("bacon")){
-              bacon+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("lettuce")){
-              lettuce+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("tomato")){
-              tomato+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("cheese")){
-              cheese+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("ham")){
-              ham+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("egg")){
-              egg+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("badEgg")){
-              badEgg+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("bananaPeel")){
-              bananaPeel+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("onion")){
-              onion+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("beef")){
-              beef+=1;
-            }
-          }
+          holder.clear();
+          image(lunch,0,0);
+          fill(5,3,3);
+          text("FINISH", 250, 30);
+          text(playa.getBeef(), 400, 150);
+          text(playa.getLettuce(), 400, 225);
+          text(playa.getTomato(), 400, 300);
+          text(playa.getbadEgg(), 400, 375);
+          text(playa.getbananaPeel(), 400, 450);
+          text("Click to continue.", 200, 520);
+          text("Points earned: ", 200, 540);
+          text(playa.getlvlPoints(), 350, 540);
+          text("Total Points: ", 200, 560);
+          text(playa.getPoints(), 350, 560);
           myMillis = millis();
           lvlStart = false;
           endLevel = true;
           noLoop();
         }
         else{
+          text("FINISH", 250, 30);
           text("Not enough points. Restarting.", 200, 50);
           playa.setPoints(playa.getPoints() - playa.getlvlPoints());
           myMillis = millis();
@@ -335,71 +253,30 @@ void draw(){
       }
       //When time runs out
       if(time == 0){
-        fill(232,190,136);
         rect(mouseX, playa.getsY()-10, 100, 10);  
         finishedLvl += 1;
-        text("FINISH", 200, 30);
+        holder.clear();
         if(playa.getlvlPoints() >= 1200){
-          text("WINNER", 200, 50);
-          text("Total points: ", 150, 70);
-          text(playa.getPoints(), 300, 70);
-          text("Again? Click.", 200, 90);
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("bacon")){
-              bacon+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("lettuce")){
-              lettuce+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("tomato")){
-              tomato+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("cheese")){
-              cheese+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("ham")){
-              ham+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("egg")){
-              egg+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("badEgg")){
-              badEgg+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("bananaPeel")){
-              bananaPeel+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("onion")){
-              onion+=1;
-            }
-          }
-          while (!playa.sandwich.isEmpty()){
-            if (playa.sandwich.pop().getName().equals("beef")){
-              beef+=1;
-            }
-          } 
+          holder.clear();
+          image(dinner, 0, 0);
+          fill(5,3,3);
+          text("FINISH", 200, 30);
+          text(playa.getHam(), 400, 175);
+          text(playa.getOnion(), 400, 225);
+          text(playa.getbadEgg(), 400, 300);
+          text(playa.getbananaPeel(), 400, 375);
+          text("WINNER", 200, 500);
+          text("Total points: ", 150, 520);
+          text(playa.getPoints(), 300, 520);
+          text("Again? Click.", 200, 540);
           myMillis = millis();
           lvlStart = false;
           endLevel = true;
           noLoop();
         }
         else{
+          fill(232,190,136);
+          text("FINISH", 200, 30);
           text("Not enough points. Restarting.", 200, 50);
           playa.setPoints(playa.getPoints() - playa.getlvlPoints());
           myMillis = millis();
@@ -462,6 +339,16 @@ void setupLvl(){
   time = interval;
   playa.setsY(500);
   playa.setlvlPoints(0);
+  playa.setBacon(0);
+  playa.setCheese(0);
+  playa.setLettuce(0);
+  playa.setEgg(0);
+  playa.setOnion(0);
+  playa.setTomato(0);
+  playa.setBeef(0);
+  playa.setbadEgg(0);
+  playa.setbananaPeel(0);
+  playa.setHam(0);
   //set images to corresponding ingredient
   //breakfast
   for (Ingredients i: meal.getBreakfast()){
