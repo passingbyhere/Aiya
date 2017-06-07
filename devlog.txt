@@ -1,6 +1,27 @@
 Team Aiya -- Elaina Chung & Lisa Eng
 APCS2 pd3
 
+Obstacles Overcome (and how!)
+- We were having trouble with trying to make each ingredient fall at a different time rather than falling at the same time. We overcame this by getting help at the CS Dojo. We learned/realized we used a while/for loop inside the draw() method which made all the ingredients fall at the same time and fixed it by =taking out the while loop and making the draw() method as the while loop.
+- We were having trouble with pop the ingredients in our sandwich stack to count how many of times the player caught a certain ingreident. This issue was caused by the stack's isEmpty() counting the pixels rather than the number of objects. We overcame/figured out that was the problem by using print statements, super helpful for debugging!!!
+- We were having trouble with making the ingredients (which were really images) falling because we first used rectangles to start and test whether the falling method worked. We overcame this by realizing that we had to make a copy of an object (which led to the creation of the function getInstance()) and so on. We also treated the images as a rectangle.
+- We were both not familiar with processing so we did have to ask around/look up constantly on the processing website to search up default methods.
+
+Unresolved Issues
+- A sandwich may stack above its height limit within less than 30 seconds and stay at that screen.
+
+Cool Stuff Learned (conceptual and/or practical)
+- draw() is a continuous, true while loop
+- images must be loaded in the driver file only!!!
+- images must be placed in a folder called data
+
+Mid-development Design Changes (and why!)
+- We did not decide to do a strike system because we felt doing so would have made things more complicated but instead if the player did not pass the level, he/she would redo the level until he/she passed and moved on to the next level. Everyone who plays becomes an automatic winner!!!!! :)))
+
+Lessons Learned (...which you might apply to future projects, CS or otherwise) ...have you achieved flow?
+- When you're trying to overcome an obstacle/have your project do a certain thing, yet you don't know how to. It is good that we want to try to figure it out ourselves, however, there are times you won't be able to figure out how to overcome the obstacle/solve the problem without the help of a senpai/sensei. Go to the dojo and don't waste time after you have tried to solve the issue for at least a day!
+- We both agreed that part of the reason why doing this project was fun was because we really communicated wth each other. In class, rather than working on things seperately, we preferred to use only one computer and always checked in with one another to make sure we were both on the same page!!! Communication is key!!!
+
 June 6, 2017
 Lisa & Elaina: Used sandwich stack to keep track the ingredients on the bread. We will use this to display the number and type of ingreidents he/she used.
 Lisa: Created images to show what the player caught for each round. Updated READ.me.
