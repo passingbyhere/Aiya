@@ -124,6 +124,8 @@ void draw(){
       }
       //when time runs out
       if(time == 0){
+        fill(232,190,136);
+        rect(mouseX, playa.getsY()-10, 100, 10);        
         finishedLvl += 1;
         text("FINISH", 200, 30);
         if(playa.getlvlPoints() >= 800){
@@ -231,6 +233,8 @@ void draw(){
       }
       //when time runs out
       if(time == 0){
+        fill(232,190,136);
+        rect(mouseX, playa.getsY()-10, 100, 10);  
         finishedLvl += 1;
 
         text("FINISH", 200, 30);
@@ -331,6 +335,8 @@ void draw(){
       }
       //When time runs out
       if(time == 0){
+        fill(232,190,136);
+        rect(mouseX, playa.getsY()-10, 100, 10);  
         finishedLvl += 1;
         text("FINISH", 200, 30);
         if(playa.getlvlPoints() >= 1200){
