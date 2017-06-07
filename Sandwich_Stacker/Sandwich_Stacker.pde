@@ -11,13 +11,13 @@ PImage badEggImg;
 PImage bananaPeelImg;
 PImage start;
 
-int maxPoints, level, time, interval, finishedLvl;
+int maxPoints, level, time, interval, finishedLvl, myMillis;
 ALQueue<Ingredients> fallIngredients = new ALQueue<Ingredients>();
 ArrayList<Ingredients> gIngredients, bIngredients;
 ArrayList<Ingredients> holder = new ArrayList<Ingredients>();
 Meal meal = new Meal();
 Player playa = new Player();
-boolean lvlStart, gameStart;
+boolean lvlStart, gameStart, endLevel;
 //how many ingreidents are in each type of sanwich that is created
 int bacon, cheese, egg, tomato, beef, lettuce, onion, ham, badEgg, bananaPeel;
 
@@ -42,6 +42,7 @@ void setup(){
   gameStart = false;
   interval = 30;
   finishedLvl = 0;
+  myMillis = millis();
   //Ingredients image
   hamImg = loadImage("ham.png");
   cheeseImg = loadImage("cheese.png");
@@ -71,6 +72,7 @@ void setup(){
 void draw(){
   if(gameStart == false){
     image(start, 0, 0);
+    myMillis = millis();
   }
   else{
   image(img, 0, 0);
@@ -83,9 +85,24 @@ void draw(){
   text(time, 520, 30);
   fill(5,3,3);
   if(lvlStart == false){
+    System.out.println(level);
+    myMillis = millis();
     setupLvl();
   }
   lvlStart = true;
+  if(endLevel){
+    if(level == 1 || level == 2){
+      level += 1;
+      playa.setLevel(playa.getLevel() + 1);
+    }
+    else{
+      gameStart = false;
+      level = 1;
+      playa.setLevel(1);
+    }
+    endLevel = false;
+  }
+  endLevel = false;
   //when holder's last item hits 1/2 point, then ask first item in falling to set status 1 && add to holder.
   if ((int)(holder.get(holder.size()-1)).getiY() >= (int)height/6){
     if (level == 1){
@@ -108,16 +125,13 @@ void draw(){
       //when time runs out
       if(time == 0){
         finishedLvl += 1;
-        text("FINISH", 200, 40);
+        text("FINISH", 200, 30);
         if(playa.getlvlPoints() >= 800){
+          text("Click to continue.", 200, 50);
           text("Points earned: ", 200, 70);
           text(playa.getlvlPoints(), 350, 70);
           text("Total Points: ", 200, 90);
           text(playa.getPoints(), 350, 90);
-          delay(1000);
-          level = 2; 
-          setupLvl();
-          playa.setLevel(2);
           while (!playa.sandwich.isEmpty()){
             if (playa.sandwich.pop().getName().equals("bacon")){
               bacon+=1;
@@ -167,17 +181,25 @@ void draw(){
             if (playa.sandwich.pop().getName().equals("beef")){
               beef+=1;
             }
-          } 
+          }
+          myMillis = millis();
+          lvlStart = false;
+          endLevel = true;
+          noLoop();  
         }
         else{
-          text("Not enough points. Restarting.", 200, 50);
+          text("Not enough points. Click to restart.", 200, 50);
           playa.setPoints(playa.getPoints() - playa.getlvlPoints());
-          setupLvl();
+          myMillis = millis();
+          System.out.println(myMillis);
+          lvlStart = false;
+          noLoop();
         }
                        
       }
       else{
-        time = interval - int(millis()/1000) + (finishedLvl*30);
+        System.out.println((int)(millis()/1000 - myMillis/1000));
+        time = interval - (int)(millis()/1000-myMillis/1000);// + (finishedLvl*30);
       }
     }
     if (level == 2){
@@ -211,15 +233,13 @@ void draw(){
       if(time == 0){
         finishedLvl += 1;
 
-        text("FINISH", 200, 40);
+        text("FINISH", 200, 30);
         if(playa.getlvlPoints() >= 1000){
-          level = 3;  
-          setupLvl();
-          playa.setLevel(3);
+          text("Click to continue.", 200, 50);
           text("Points earned: ", 200, 70);
-          text(playa.getlvlPoints(), 300, 70);
+          text(playa.getlvlPoints(), 350, 70);
           text("Total Points: ", 200, 90);
-          text(playa.getPoints(), 300, 90);
+          text(playa.getPoints(), 350, 90);
           while (!playa.sandwich.isEmpty()){
             if (playa.sandwich.pop().getName().equals("bacon")){
               bacon+=1;
@@ -269,16 +289,22 @@ void draw(){
             if (playa.sandwich.pop().getName().equals("beef")){
               beef+=1;
             }
-          } 
+          }
+          myMillis = millis();
+          lvlStart = false;
+          endLevel = true;
+          noLoop();
         }
         else{
           text("Not enough points. Restarting.", 200, 50);
           playa.setPoints(playa.getPoints() - playa.getlvlPoints());
-          setupLvl();           
+          myMillis = millis();
+          lvlStart = false;
+          noLoop();
         }
       }
       else{
-        time = interval - int(millis()/1000) + (finishedLvl*30);
+        time = interval - int(millis()/1000 - myMillis/1000);// + (finishedLvl*30);
       }
     }
     if (level == 3){
@@ -306,11 +332,12 @@ void draw(){
       //When time runs out
       if(time == 0){
         finishedLvl += 1;
-        text("FINISH", 200, 40);
+        text("FINISH", 200, 30);
         if(playa.getlvlPoints() >= 1200){
           text("WINNER", 200, 50);
-          text("Total points: ", 150, 60);
-          text(playa.getPoints(), 300, 60);
+          text("Total points: ", 150, 70);
+          text(playa.getPoints(), 300, 70);
+          text("Again? Click.", 200, 90);
           while (!playa.sandwich.isEmpty()){
             if (playa.sandwich.pop().getName().equals("bacon")){
               bacon+=1;
@@ -361,15 +388,21 @@ void draw(){
               beef+=1;
             }
           } 
+          myMillis = millis();
+          lvlStart = false;
+          endLevel = true;
+          noLoop();
         }
         else{
           text("Not enough points. Restarting.", 200, 50);
           playa.setPoints(playa.getPoints() - playa.getlvlPoints());
-          lvlStart = false;                 
+          myMillis = millis();
+          lvlStart = false; 
+          noLoop();                
         }
       }
       else{
-         time = interval - int(millis()/1000) + (finishedLvl*30);       
+         time = interval - int(millis()/1000-myMillis/1000);// + (finishedLvl*30);       
       }
                      
     }
@@ -414,6 +447,7 @@ void draw(){
       }            
       i.move(playa);
     }
+    
   }
 }
 
@@ -553,5 +587,8 @@ void setupLvl(){
 void mouseClicked(){
   if(gameStart == false){
     gameStart = true;
+  }
+  if(gameStart){
+    loop();
   }
 }
